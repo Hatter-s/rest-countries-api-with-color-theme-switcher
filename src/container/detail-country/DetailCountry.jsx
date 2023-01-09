@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { getAllCountryCode, getCountryByCode } from "../../api/country-api";
 
 import ArrowLeft from "../../components/icon/arrow-left";
 
