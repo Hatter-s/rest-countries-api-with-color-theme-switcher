@@ -36,6 +36,11 @@ export default function HomeContextProvider({ children }) {
     return Math.ceil(elements / display) ;
   }
 
+  useEffect(() => {
+    document.title = 'rest countries api';
+    document.querySelector('[rel=icon]').href = "%PUBLIC_URL%/global.png";
+  }, [])
+
   const pages = useMemo(()=> {
     if(!countries) {
       return 1;

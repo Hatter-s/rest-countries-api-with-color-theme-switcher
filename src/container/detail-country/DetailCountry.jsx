@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 import ArrowLeft from "../../components/icon/arrow-left";
@@ -8,10 +8,16 @@ import './DetailCountry.scss';
 export default function DetailCounTry() {
   const { countryData, codeAllCountries } = useLoaderData();
 
-  let bordersCountriesName = countryData.borders.map(
-    countryCode => codeAllCountries[countryCode]
-  )
+  let bordersCountriesName = countryData.borders
+    ? countryData.borders.map(
+      countryCode => codeAllCountries[countryCode]
+    )
+    : null;
 
+  useEffect(() => { 
+    document.title = countryData.name.common;
+    document.querySelector('[rel=icon]').href = countryData.flags.png;
+  }, [countryData]);
   const navigate = useNavigate();
 
   return (
