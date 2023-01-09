@@ -1,0 +1,13 @@
+@use './util/scss/var' as var;
+@use './util/scss/utils';
+@use './util/scss/add_fonts';
+@use './util/scss/josh_comeau_reset';
+
+:root {
+  font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}

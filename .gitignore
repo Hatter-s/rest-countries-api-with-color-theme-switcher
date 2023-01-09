@@ -37,3 +37,9 @@ yarn-error.log*
 
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
+
+todo.md
+comments.md
+style-guide.md
+.vscode
+src/assets/bootstrap-icons

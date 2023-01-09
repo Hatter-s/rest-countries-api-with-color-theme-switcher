@@ -1,0 +1,125 @@
+@use '../../util/scss/utils';
+@use '../../util/scss/var' as var;
+
+main {
+  .util-bar {
+    @extend %flex-between;
+    $border-radius: 6px;
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    [role=search] {
+      border-radius: $border-radius;
+      @extend %flex-start;
+      width: 100%;
+      max-width: 500px;
+      gap: 1.5em;
+      overflow: hidden;
+      padding: 0 1.5em;
+      cursor: pointer;
+
+      .search-bar {
+        display: block;
+
+        flex: 1;
+        border: none;
+        padding: 1em 0;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+
+    [role=filter] {
+      width: 100%;
+      max-width: 200px;
+
+      .choose-region {
+        position: relative;
+        isolation: isolate;
+
+        .current-region {
+          cursor: pointer;
+          @extend %flex-between;
+          gap: 1em;
+          padding: 1em 1.5em;
+          border-radius: $border-radius;
+        }
+
+        .regions {
+          list-style: none;
+          position: absolute;
+          top: calc(100% + 0.3em);
+          right: 0;
+          left: 0;
+          border-radius: $border-radius;
+          padding-left: 0;
+
+          .region {
+            cursor: pointer;
+            padding: 0.5em 1.5em;
+            &:first-child {
+              padding-top: 1em;
+              border-radius: $border-radius $border-radius 0 0;
+            }
+
+            &:last-child {
+              padding-bottom: 1em;
+              border-radius: 0 0 $border-radius $border-radius;
+            }
+
+            &:hover {
+              background-color: var.$cl-very-dark-blue
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      & {
+        gap: 4em;
+
+        [role=filter] {
+          max-width: 65%;
+        }
+      }
+    }
+  }
+
+  .cards {
+    margin-top: 3em;
+    padding-bottom: 3em;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 320px));
+    gap: 4em;
+    grid-template-rows: auto;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .no-country {
+      grid-column: 1 / span 4;
+      min-height: 400px;
+      font-size: 2em;
+      @extend %flex-center;
+    }
+
+    @media (max-width: 576px) {
+      & {
+        display: flex;
+        flex-flow: column;
+        gap: 3em;
+        margin-left: 2.25em;
+        margin-right: 2.25em;
+
+        .card {
+          .head {
+            img {
+              height: 160px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

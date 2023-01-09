@@ -1,0 +1,67 @@
+@use "../../util/scss/var" as var;
+
+.contain-all {
+  min-height: 100vh;
+}
+
+.dark-mode {
+  background-color: var.$cl-very-dark-blue;
+  color: var.$cl-white;
+
+  .element {
+    background-color: var.$cl-dark-blue;
+    color: var.$cl-white;
+  }
+
+  :is(input, textarea, select):is(:autofill, :autofill:focus) {
+    background-color: var.$cl-dark-blue !important;
+    color: var.$cl-white !important;
+    -webkit-text-fill-color: var.$cl-white !important;
+    box-shadow: 0 0 0px 1000px var.$cl-dark-blue inset !important;
+  }
+
+  .spec-element {
+    background-color: var.$cl-dark-blue;
+    color: var.$cl-white;
+  }
+}
+
+.light-mode {
+  background-color: var.$cl-light-gray;
+  color: var.$cl-very-dark-blue;
+
+  .element {
+    background-color: var.$cl-white;
+    color: var.$cl-very-dark-blue;
+  }
+
+  :is(input, textarea, select):is(:autofill, :autofill:hover, :autofill:focus) {
+    background-color: var.$cl-white !important;
+    color: var.$cl-very-dark-blue !important;
+    -webkit-text-fill-color: var.$cl-very-dark-blue !important;
+    box-shadow: 0 0 0px 1000px var.$cl-white inset !important;
+  }
+
+  .spec-element {
+    background-color: var.$cl-white;
+    color: var.$cl-very-dark-blue;
+  }
+
+  .input {
+    color: var.$cl-dark-gray;
+  }
+}
+
+.element {
+  box-shadow: 0 0 2em hsla(0, 0%, 52%, 0.1);
+}
+
+%light-mode-element {
+  background-color: var.$cl-white;
+  color: var.$cl-very-dark-blue;
+}
+
+%dark-mode-element {
+  background-color: var.$cl-white;
+  color: var.$cl-very-dark-blue;
+}

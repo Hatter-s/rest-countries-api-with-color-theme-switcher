@@ -1,0 +1,27 @@
+@use '../../util/scss/utils';
+@use '../../util/scss/var' as var;
+
+
+.pagination {
+  grid-column: 1 / span 4;
+  @extend %flex-center;
+  align-items: stretch;
+  gap: 0.5em;
+
+  button.paging-button {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+
+    &.current {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    &:disabled {
+      cursor: auto;
+    }
+  }
+}

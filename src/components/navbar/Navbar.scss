@@ -1,0 +1,43 @@
+@use '../../util/scss/utils';
+@use '../../util/scss/var' as var;
+
+nav.navbar {
+  .container {
+    @extend %flex-between !optional;
+  }
+  
+  padding: 1.5em;
+
+  .brand {
+    font-family: sans-serif;
+    font-size: 1.6em;
+    color: inherit;
+    text-decoration: none;
+    font-weight: var.$fw-semibold;
+  }
+
+  .dark-mode-toggle {
+    cursor: pointer;
+    padding: none;
+    background-color: transparent;
+    border: none;
+    @extend %flex-between !optional;
+    gap: 0.5em;
+    color: inherit;
+    font-weight: var.$fw-semibold;
+  }
+
+  @media (max-width: 576px) {
+    & {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 2.5em;
+      padding-bottom: 2.5em;
+
+      .brand {
+        font-size: 1.25em;
+        font-weight: var.$fw-semibold;
+      }
+    }
+  }
+}
